@@ -24,11 +24,11 @@ jobs:
         run: |
           pytest # ou toute autre commande pour exécuter vos tests
       - name: setup docker username and password
-        env:
+        uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
+        with:
           username: ${{secrets.DOCKER_PASSWORD}}
           password: ${{secrets.DOCKER_USERNAME}}
-        run: |
-            docker login -u $username -p $password    
+   
       - name: build the docker image
         run: |
           docker build . -f Dockerfile -t flask-app:latest
