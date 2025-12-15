@@ -34,7 +34,7 @@ jobs:
           docker build . -f Dockerfile -t flask-app:latest
       - name: push the docker image
         run: |
-          docker push ${{secrets.DOCKER_USERNAME}}/flask-app:latest
+          docker push khaled416/flask-app:latest
 
 
           
