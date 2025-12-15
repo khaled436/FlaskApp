@@ -25,8 +25,8 @@ jobs:
           pytest # ou toute autre commande pour exécuter vos tests
       - name: setup docker username and password
         env:
-          username: ${{secrets.DOCKER_PASSWORD}}
-          password: ${{secrets.DOCKER_USERNAME}}
+          username: khaled416
+          password: D7ye#Jg.RZ$Jssh
         run: |
             docker login -u $username -p $password    
       - name: build the docker image
