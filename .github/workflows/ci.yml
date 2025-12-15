@@ -23,3 +23,18 @@ jobs:
       - name: Run tests
         run: |
           pytest # ou toute autre commande pour exécuter vos tests
+      - name: setup docker username and password
+        env:
+          username: ${{secrets.DOCKER_PASSWORD}}
+          password: ${{secrets.DOCKER_USERNAME}}
+        run: |
+            docker login -u $username -p $password    
+      - name: build the docker image
+        run: |
+          docker build . -f Dockerfile -t flask-app:latest
+      - name: push the docker image
+        run: |
+          docker push ${{secrets.DOCKER_USERNAME}}/flask-app:latest
+
+
+          
